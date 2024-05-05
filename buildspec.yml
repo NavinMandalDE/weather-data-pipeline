@@ -1,0 +1,30 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - echo "Installing dependencies..."
+      - pip install --upgrade pip
+
+  pre_build:
+    commands:
+      - echo "Pre-build started..."
+      - echo "Pre-build complete."
+
+  build:
+    commands:
+      - echo "Build started..."
+      - echo "Copying DAG files to S3..."
+      - aws s3 cp --recursive ./dags s3://airflow-env-bkt/dags/
+      - echo "Copying requirements.txt files to S3..."
+      - aws s3 cp ./requirements.txt s3://airflow-env-bkt/
+      - echo "Copying Glue scripts to S3..."
+      - aws s3 cp --recursive ./scripts s3://aws-glue-assets-654654491149-us-east-1/scripts/
+      - echo "Build complete."
+
+  post_build:
+    commands:
+      - echo "Post-build started..."
+      - echo "Post-build complete."
