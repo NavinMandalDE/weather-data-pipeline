@@ -31,7 +31,7 @@ city_name, country_code = ('Ranchi','India')
 
 api_endpoint = 'https://api.openweathermap.org/data/2.5/forecast'
 api_params = {
-    'q':'{city_name},{country_code}',
+    'q':f'{city_name},{country_code}',
     'appid':{Variable.get('openweather_api_key')}
 }
 
