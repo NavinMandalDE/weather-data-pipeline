@@ -17,7 +17,7 @@ dag = DAG(
     'transform_redshift_dag',
     default_args=default_args,
     description='DAG to run OpenWeather API and fetch data', 
-    schedule_interval=timedelta(days=1), # '@once'
+    schedule_interval='@once', # timedelta(days=1)
     catchup=False
 )
 
