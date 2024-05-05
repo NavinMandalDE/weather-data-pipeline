@@ -59,7 +59,7 @@ Redshift_node =  glueContext.write_dynamic_frame.from_options(
         "aws_iam_role": redshift_role_arn,
         "dbtable": "openweather.weather_data",
         "connectionName": "redshift-connection",
-        "preactions": "DROP TABLE IF EXISTS public.weather_data; CREATE TABLE IF NOT EXISTS public.weather_data (dt VARCHAR, weather VARCHAR, visibility VARCHAR, temp VARCHAR, feels_like VARCHAR, min_temp VARCHAR, max_temp VARCHAR, pressure VARCHAR, sea_level VARCHAR, ground_level VARCHAR, humidity VARCHAR, wind VARCHAR);",
+        "preactions": "DROP TABLE IF EXISTS openweather.weather_data; CREATE TABLE IF NOT EXISTS openweather.weather_data (dt VARCHAR, weather VARCHAR, visibility VARCHAR, temp VARCHAR, feels_like VARCHAR, min_temp VARCHAR, max_temp VARCHAR, pressure VARCHAR, sea_level VARCHAR, ground_level VARCHAR, humidity VARCHAR, wind VARCHAR);",
     },
     transformation_ctx="Redshift_node",
 )
